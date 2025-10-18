@@ -1,0 +1,248 @@
+---
+import photo from "../assets/profile_photo.jpg";
+import { Image } from "astro:assets";
+
+import background from "../assets/background.svg";
+---
+
+<div id="container">
+  <img id="background" src={background.src} alt="" fetchpriority="high" />
+
+  <div class="main_content">
+    <div class="profile-main">
+      <div class="about">
+        <div class="profile_info">
+          <div class="profile_photo-wrapper">
+            <Image src={photo} alt="author photo" width={200} />
+          </div>
+          <button class="profile__resume-button"
+            ><p class="profile__resume-button-text">
+              <a class="links" href="/example.pdf" download>My actual resume</a>
+            </p></button
+          >
+        </div>
+
+        <div class="text">
+          <p class="text_fancy">
+            Hi, i`m Irina and im software engineer. Glad you’re here.
+          </p>
+
+          <p>
+            I`m skilled in building scalable web applications using JavaScript
+            and TypeScript, with a deep understanding of the web platform and
+            modern development practices.
+          </p>
+        </div>
+      </div>
+
+      <div class="text">
+        <p>
+          I love building things on the frontend with React and TypeScript, and
+          I have hands-on experience in full-stack development. I enjoy turning
+          ideas into complete, production-ready solutions.
+        </p>
+
+        <p>
+          Open source inspires me, and I strive to make my own contributions to
+          the community. I enjoy collaborating and sharing ideas on <a
+            class="links"
+            href="https://github.com/Katsyuta/">GitHub</a
+          >
+        </p>
+
+        <p>
+          Feel free to reach out if you want to work together or share ideas:
+          <a class="links" href="mailto:katsyuta@proton.me"
+            >katsyuta@proton.me</a
+          >
+        </p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>Let’s connect!</p>
+      <div class="contact-list">
+        <a class="links" href="https://github.com/Katsyuta/">GitHub</a>
+        <a
+          class="links"
+          href="https://www.linkedin.com/in/irina-katsyuta-487506383/"
+          >LinkedIn</a
+        >
+        <a class="links" href="mailto:katsyuta@proton.me">Email</a>
+      </div>
+    </div>
+
+    <style>
+      main {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+      }
+
+      #background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        filter: blur(100px);
+      }
+
+      #container {
+        font-family: Inter, Roboto, "Helvetica Neue", "Arial Nova",
+          "Nimbus Sans", Arial, sans-serif;
+        height: 100%;
+      }
+
+      .profile-main {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        padding: 20px;
+        margin: auto;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .profile_info {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .main_content {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        max-width: 800px;
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        padding: 20px;
+        box-sizing: border-box;
+
+        justify-content: center;
+        align-items: center;
+      }
+
+      .about {
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
+        align-items: center;
+      }
+
+      .profile_photo-wrapper {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        overflow: hidden;
+        display: flex;
+      }
+
+      .profile__resume-button-text {
+        font-family: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo,
+          Consolas, "DejaVu Sans Mono", monospace;
+        font-weight: normal;
+        background: linear-gradient(14deg, #a21818 0%, #a625b1 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin: 0;
+        font-size: 16px;
+      }
+
+      button {
+        width: max-content;
+        display: flex;
+        background:
+          linear-gradient(66.77deg, #f3cddd 0%, #f5cee7 100%) padding-box,
+          linear-gradient(155deg, #d83333 0%, #f041ff 18%, #f5cee7 45%)
+            border-box;
+        border-radius: 8px;
+        border: 1px solid transparent;
+        padding: 6px 8px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        transform: scale(1.05);
+      }
+
+      button:active {
+        background:
+          linear-gradient(66.77deg, #f7b8d3 0%, #f9c6e2 100%) padding-box,
+          linear-gradient(155deg, #ec2222 0%, #e14dff 18%, #f7d6e8 45%)
+            border-box;
+      }
+
+      .text_fancy {
+        font-style: italic;
+      }
+
+      .text {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      p {
+        color: #3c4249;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: -0.006em;
+        margin: 0;
+      }
+
+      .links {
+        color: #a21818;
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+
+      .links:hover {
+        color: #833400;
+      }
+
+      .contact-list {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+      }
+
+      .footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        align-self: center;
+      }
+
+      @media screen and (max-width: 768px) {
+        .about {
+          flex-direction: column;
+        }
+        #container {
+          display: flex;
+          flex-direction: column;
+        }
+        .contact-list {
+          flex-direction: column;
+          gap: 20px;
+          align-items: center;
+        }
+
+        .links {
+          flex-wrap: wrap;
+        }
+
+        button {
+          padding: 14px 18px;
+        }
+      }
+    </style>
+  </div>
+</div>
