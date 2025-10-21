@@ -3,14 +3,15 @@ import photo from "../assets/profile_photo.jpg";
 import { Image } from "astro:assets";
 
 import background from "../assets/background.svg";
+import "../styles/tokens.css";
 ---
 
-<div id="container">
-  <img id="background" src={background.src} alt="" fetchpriority="high" />
+<div class="container">
+  <img class="background" src={background.src} alt="" fetchpriority="high" />
 
   <div class="main_content">
-    <div class="profile-main">
-      <div class="about">
+    <div class="profile">
+      <div class="profile_about">
         <div class="profile_info">
           <div class="profile_photo-wrapper">
             <Image src={photo} alt="author photo" width={200} />
@@ -22,8 +23,8 @@ import background from "../assets/background.svg";
           >
         </div>
 
-        <div class="text">
-          <p class="text_fancy">
+        <div class="profile_text">
+          <p class="profile_text-fancy">
             Hi, i`m Irina and im software engineer. Glad you’re here.
           </p>
 
@@ -35,7 +36,7 @@ import background from "../assets/background.svg";
         </div>
       </div>
 
-      <div class="text">
+      <div class="profile_text">
         <p>
           I love building things on the frontend with React and TypeScript, and
           I have hands-on experience in full-stack development. I enjoy turning
@@ -79,7 +80,7 @@ import background from "../assets/background.svg";
         justify-content: center;
       }
 
-      #background {
+      .background {
         position: fixed;
         top: 0;
         left: 0;
@@ -89,13 +90,12 @@ import background from "../assets/background.svg";
         filter: blur(100px);
       }
 
-      #container {
-        font-family: Inter, Roboto, "Helvetica Neue", "Arial Nova",
-          "Nimbus Sans", Arial, sans-serif;
-        height: 100%;
+      .container {
+        font-family: var(font-base);
+        min-height: 100%;
       }
 
-      .profile-main {
+      .profile {
         display: flex;
         flex-direction: column;
         gap: 30px;
@@ -128,7 +128,7 @@ import background from "../assets/background.svg";
         align-items: center;
       }
 
-      .about {
+      .profile_about {
         display: flex;
         flex-direction: row;
         gap: 30px;
@@ -179,32 +179,31 @@ import background from "../assets/background.svg";
             border-box;
       }
 
-      .text_fancy {
+      .profile_text-fancy {
         font-style: italic;
       }
 
-      .text {
+      .profile_text {
         display: flex;
         flex-direction: column;
         gap: 20px;
       }
 
       p {
-        color: #3c4249;
-        font-size: 16px;
-        line-height: 24px;
-        letter-spacing: -0.006em;
-        margin: 0;
+        color: var(--color-text);
+        font-size: var(--font-size);
+        line-height: var(--line-height);
+        letter-spacing: var(--letter-spacing);
       }
 
       .links {
-        color: #a21818;
+        color: var(--color-link);
         text-decoration: none;
         transition: color 0.2s;
       }
 
       .links:hover {
-        color: #833400;
+        color: var(--link-color-hover);
       }
 
       .contact-list {
@@ -222,10 +221,10 @@ import background from "../assets/background.svg";
       }
 
       @media screen and (max-width: 768px) {
-        .about {
+        .profile_about {
           flex-direction: column;
         }
-        #container {
+        .container {
           display: flex;
           flex-direction: column;
         }
